@@ -115,3 +115,82 @@ POST /user/login
   "message": "Invalid Email or password"
 }
 ```
+
+---
+
+# User Profile API Documentation
+
+## Description
+Endpoint to get the current user's profile information.
+
+### Endpoint
+```
+GET /user/profile
+```
+
+### Headers
+| Field          | Value                            | Required |
+|----------------|----------------------------------|----------|
+| Authorization  | Bearer {token}                   | Yes      |
+
+### Response Status Codes
+| Status Code | Description                      |
+|-------------|----------------------------------|
+| 200         | Success                          |
+| 401         | Unauthorized - Invalid token     |
+| 500         | Internal Server Error            |
+
+### Example Success Response
+```json
+{
+  "id": "user_id",
+  "firstName": "John",
+  "lastName": "Doe",
+  "email": "john.doe@example.com"
+}
+```
+
+### Example Error Response
+```json
+{
+  "message": "Unauthorized"
+}
+```
+
+---
+
+# User Logout API Documentation
+
+## Description
+Endpoint to logout the current user and invalidate their token.
+
+### Endpoint
+```
+GET /user/logout
+```
+
+### Headers
+| Field          | Value                            | Required |
+|----------------|----------------------------------|----------|
+| Authorization  | Bearer {token}                   | Yes      |
+
+### Response Status Codes
+| Status Code | Description                      |
+|-------------|----------------------------------|
+| 200         | Successfully logged out          |
+| 401         | Unauthorized - Invalid token     |
+| 500         | Internal Server Error            |
+
+### Example Success Response
+```json
+{
+  "message": "Logged out successfully"
+}
+```
+
+### Example Error Response
+```json
+{
+  "message": "Unauthorized"
+}
+```
